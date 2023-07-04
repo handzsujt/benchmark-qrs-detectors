@@ -113,7 +113,7 @@ if application == 'Comparison of different algorithms':
                 results_df.iloc[-1, :].name = 'Pan-Tompkins-ecg-detector'
                 global_eval = results_df.iloc[-1, 1:]
                 global_eval.name = 'Pan-Tompkins-ecg-detector'
-                comparison_df = comparison_df.append(global_eval)
+                comparison_df = pd.concat([comparison_df, global_eval])
                 number_of_beats = results_df.iloc[-1, 0]
         if st.checkbox('Hamilton-ecg-detector'):
             if not os.path.exists(f'output/perf/Hamilton-ecg-detector_{dataset}_{tolerance}.csv'):
@@ -123,7 +123,7 @@ if application == 'Comparison of different algorithms':
                                          index_col=0)
                 global_eval = results_df.iloc[-1, 1:]
                 global_eval.name = 'Hamilton-ecg-detector'
-                comparison_df = comparison_df.append(global_eval)
+                comparison_df = pd.concat([comparison_df, global_eval])
                 number_of_beats = results_df.iloc[-1, 0]
         if st.checkbox('Christov-ecg-detector'):
             if not os.path.exists(f'output/perf/Christov-ecg-detector_{dataset}_{tolerance}.csv'):
@@ -133,7 +133,7 @@ if application == 'Comparison of different algorithms':
                                          index_col=0)
                 global_eval = results_df.iloc[-1, 1:]
                 global_eval.name = 'Christov-ecg-detector'
-                comparison_df = comparison_df.append(global_eval)
+                comparison_df = pd.concat([comparison_df, global_eval])
                 number_of_beats = results_df.iloc[-1, 0]
         if st.checkbox('Engelse-Zeelenberg-ecg-detector'):
             if not os.path.exists(f'output/perf/Engelse-Zeelenberg-ecg-detector_{dataset}_{tolerance}.csv'):
@@ -143,7 +143,7 @@ if application == 'Comparison of different algorithms':
                                          delimiter=',', index_col=0)
                 global_eval = results_df.iloc[-1, 1:]
                 global_eval.name = 'Engelse-Zeelenberg-ecg-detector'
-                comparison_df = comparison_df.append(global_eval)
+                comparison_df = pd.concat([comparison_df, global_eval])
                 number_of_beats = results_df.iloc[-1, 0]
         if st.checkbox('SWT-ecg-detector'):
             if not os.path.exists(f'output/perf/SWT-ecg-detector_{dataset}_{tolerance}.csv'):
@@ -153,7 +153,7 @@ if application == 'Comparison of different algorithms':
                                          index_col=0)
                 global_eval = results_df.iloc[-1, 1:]
                 global_eval.name = 'SWT-ecg-detector'
-                comparison_df = comparison_df.append(global_eval)
+                comparison_df = pd.concat([comparison_df, global_eval])
                 number_of_beats = results_df.iloc[-1, 0]
         if st.checkbox('Matched-filter-ecg-detector'):
             if not os.path.exists(f'output/perf/Matched-filter-ecg-detector_{dataset}_{tolerance}.csv'):
@@ -163,7 +163,7 @@ if application == 'Comparison of different algorithms':
                                          delimiter=',', index_col=0)
                 global_eval = results_df.iloc[-1, 1:]
                 global_eval.name = 'Matched-filter-ecg-detector'
-                comparison_df = comparison_df.append(global_eval)
+                comparison_df = pd.concat([comparison_df, global_eval])
                 number_of_beats = results_df.iloc[-1, 0]
         if st.checkbox('Two-average-ecg-detector'):
             if not os.path.exists(f'output/perf/Two-average-ecg-detector_{dataset}_{tolerance}.csv'):
@@ -173,7 +173,7 @@ if application == 'Comparison of different algorithms':
                                          delimiter=',', index_col=0)
                 global_eval = results_df.iloc[-1, 1:]
                 global_eval.name = 'Two-average-ecg-detector'
-                comparison_df = comparison_df.append(global_eval)
+                comparison_df = pd.concat([comparison_df, global_eval])
                 number_of_beats = results_df.iloc[-1, 0]
         if st.checkbox('Hamilton-biosppy'):
             if not os.path.exists(f'output/perf/Hamilton-biosppy_{dataset}_{tolerance}.csv'):
@@ -183,7 +183,7 @@ if application == 'Comparison of different algorithms':
                                          index_col=0)
                 global_eval = results_df.iloc[-1, 1:]
                 global_eval.name = 'Hamilton-biosppy'
-                comparison_df = comparison_df.append(global_eval)
+                comparison_df = pd.concat([comparison_df, global_eval])
                 number_of_beats = results_df.iloc[-1, 0]
         if st.checkbox('Christov-biosppy'):
             if not os.path.exists(f'output/perf/Christov-biosppy_{dataset}_{tolerance}.csv'):
@@ -193,7 +193,7 @@ if application == 'Comparison of different algorithms':
                                          index_col=0)
                 global_eval = results_df.iloc[-1, 1:]
                 global_eval.name = 'Christov-biosppy'
-                comparison_df = comparison_df.append(global_eval)
+                comparison_df = pd.concat([comparison_df, global_eval])
                 number_of_beats = results_df.iloc[-1, 0]
         if st.checkbox('Engelse-Zeelenberg-biosppy'):
             if not os.path.exists(f'output/perf/Engelse-Zeelenberg-biosppy_{dataset}_{tolerance}.csv'):
@@ -204,7 +204,7 @@ if application == 'Comparison of different algorithms':
                                          index_col=0)
                 global_eval = results_df.iloc[-1, 1:]
                 global_eval.name = 'Engelse-Zeelenberg-biosppy'
-                comparison_df = comparison_df.append(global_eval)
+                comparison_df = pd.concat([comparison_df, global_eval])
                 number_of_beats = results_df.iloc[-1, 0]
         if st.checkbox('Gamboa-biosppy'):
             if not os.path.exists(f'output/perf/Gamboa-biosppy_{dataset}_{tolerance}.csv'):
@@ -214,7 +214,7 @@ if application == 'Comparison of different algorithms':
                                          index_col=0)
                 global_eval = results_df.iloc[-1, 1:]
                 global_eval.name = 'Gamboa-biosppy'
-                comparison_df = comparison_df.append(global_eval)
+                comparison_df = pd.concat([comparison_df, global_eval])
                 number_of_beats = results_df.iloc[-1, 0]
         if st.checkbox('mne-ecg'):
             if not os.path.exists(f'output/perf/mne-ecg_{dataset}_{tolerance}.csv'):
@@ -224,7 +224,7 @@ if application == 'Comparison of different algorithms':
                                          index_col=0)
                 global_eval = results_df.iloc[-1, 1:]
                 global_eval.name = 'mne-ecg'
-                comparison_df = comparison_df.append(global_eval)
+                comparison_df = pd.concat([comparison_df, global_eval])
                 number_of_beats = results_df.iloc[-1, 0]
         if st.checkbox('heartpy'):
             if not os.path.exists(f'output/perf/heartpy_{dataset}_{tolerance}.csv'):
@@ -234,7 +234,7 @@ if application == 'Comparison of different algorithms':
                                          index_col=0)
                 global_eval = results_df.iloc[-1, 1:]
                 global_eval.name = 'heartpy'
-                comparison_df = comparison_df.append(global_eval)
+                comparison_df = pd.concat([comparison_df, global_eval])
                 number_of_beats = results_df.iloc[-1, 0]
         if st.checkbox('gqrs-wfdb'):
             if not os.path.exists(f'output/perf/gqrs-wfdb_{dataset}_{tolerance}.csv'):
@@ -244,7 +244,7 @@ if application == 'Comparison of different algorithms':
                                          index_col=0)
                 global_eval = results_df.iloc[-1, 1:]
                 global_eval.name = 'gqrs-wfdb'
-                comparison_df = comparison_df.append(global_eval)
+                comparison_df = pd.concat([comparison_df, global_eval])
                 number_of_beats = results_df.iloc[-1, 0]
         if st.checkbox('xqrs-wfdb'):
             if not os.path.exists(f'output/perf/xqrs-wfdb_{dataset}_{tolerance}.csv'):
@@ -254,7 +254,7 @@ if application == 'Comparison of different algorithms':
                                          index_col=0)
                 global_eval = results_df.iloc[-1, 1:]
                 global_eval.name = 'xqrs-wfdb'
-                comparison_df = comparison_df.append(global_eval)
+                comparison_df = pd.concat([comparison_df, global_eval])
                 number_of_beats = results_df.iloc[-1, 0]
         st.write(f"Comparative table of global performances: ")
         st.write(comparison_df)
@@ -354,6 +354,7 @@ elif application == 'Evaluation of one algorithm':
             id_records = list(records[dataset].keys())
             record_id = st.selectbox('Please choose the record', id_records)
             for file in json_files:
+                fig, _ = plt.subplots()
                 with open(file) as json_delays:
                     dict_delays = json.load(json_delays)
                     tolerance = int(file[:-5].split('_')[-1])
@@ -364,7 +365,7 @@ elif application == 'Evaluation of one algorithm':
                     plt.ylabel('count of annotations detected with each delay')
                     plt.title(f'Distribution of Delays for Record {record_id}')
                     plt.legend()
-                    st.pyplot()
+                    st.pyplot(fig)
 
 # third application
 elif application == 'Noise robustness':
@@ -397,12 +398,12 @@ elif application == 'Noise robustness':
     if os.path.exists(f'output/perf/{algorithm}_mit-bih-arrhythmia_{tolerance}.csv'):
         df_without_noise = pd.read_csv(f'output/perf/{algorithm}_mit-bih-arrhythmia_{tolerance}.csv', delimiter=',',
                                        index_col=0)
-        comparison_df_118 = comparison_df_118.append(df_without_noise.loc['118', :])
-        comparison_df_119 = comparison_df_119.append(df_without_noise.loc['119', :])
+        comparison_df_118 = pd.concat([comparison_df_118, df_without_noise.loc['118', :]])
+        comparison_df_119 = pd.concat([comparison_df_119, df_without_noise.loc['119', :]])
     for csv_file in csv_files:
         results_df = pd.read_csv(csv_file, delimiter=',', index_col=0)
-        comparison_df_118 = comparison_df_118.append(results_df.iloc[0, :])
-        comparison_df_119 = comparison_df_119.append(results_df.iloc[1, :])
+        comparison_df_118 = pd.concat([comparison_df_118, results_df.iloc[0, :]])
+        comparison_df_119 = pd.concat([comparison_df_119, results_df.iloc[1, :]])
     st.write(comparison_df_118)
     st.write(comparison_df_119)
 

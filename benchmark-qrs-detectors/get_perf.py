@@ -158,8 +158,8 @@ def add_eval_global_line(performances_df: pd.DataFrame, nb_of_records: int, tota
     blanks = pd.DataFrame([['_____', '_____', '_____', '_____', '_____', '_____', '_____', '_____']],
                           index=['_____'],
                           columns=['nbofbeats', 'FP', 'FN', 'F', 'F(%)', 'P+(%)', 'Se(%)', 'F1(%)'])
-    performances_df = performances_df.append(blanks, ignore_index=False)
-    final_performances_df = performances_df.append(global_perf, ignore_index=False)
+    performances_df = pd.concat([performances_df, blanks], ignore_index=False)
+    final_performances_df = pd.concat([performances_df, global_perf], ignore_index=False)
     return final_performances_df
 
 
@@ -243,9 +243,9 @@ def main(data: str, algo: str, tol: int) -> None:
             delays_dict_tol[id_rec] = list_delays[0]
             delays_dict_sup1[id_rec] = list_delays[1]
             delays_dict_sup2[id_rec] = list_delays[2]
-            performances_tol = performances_tol.append(list_performance[0], ignore_index=False)
-            performances_sup1 = performances_sup1.append(list_performance[1], ignore_index=False)
-            performances_sup2 = performances_sup2.append(list_performance[2], ignore_index=False)
+            performances_tol = pd.concat([performances_tol, list_performance[0]], ignore_index=False)
+            performances_sup1 = pd.concat([performances_sup1, list_performance[1]], ignore_index=False)
+            performances_sup2 = pd.concat([performances_sup2, list_performance[2]], ignore_index=False)
             counter += 1
             print(f'{counter}/{nb_of_records}')
         except StopIteration:

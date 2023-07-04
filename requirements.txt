@@ -1,4 +1,3 @@
-(Python==3.7.6)
 biosppy>=0.6.1
 Click>=7.0
 heartpy>=1.2.6
